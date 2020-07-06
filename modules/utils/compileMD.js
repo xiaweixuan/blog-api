@@ -1,25 +1,25 @@
 const fs = require('fs');
 const funcs = require('./funcs');
 const marked = require('marked');
-const temRule =require('./htmlTemplate.lifeStyle.json')
+const temRule = require('./htmlTemplate.lifeStyle.json')
 /**
  * 将md文件转化为html
  */
 
 module.exports = new function () {
   var self = this;
-
-  this.domain = '';
+  //指定文章的静态资源
+  this.domain = 'http://api.xiawx.top/mdFile/fileArticle/';
 
   this.dbIndex = {
     filedata: [],
     // index: {}
   };
 
-  function  trfObbj(obj){
-    var str=""
-    for(let i in obj){
-      str+=i+":"+obj[i]+";"
+  function trfObbj(obj) {
+    var str = ""
+    for (let i in obj) {
+      str += i + ":" + obj[i] + ";"
     }
     // console.log(str)
     return str
@@ -55,18 +55,20 @@ module.exports = new function () {
       console.log(err);
     }
   };
-  this.comOne = async (dbpath,name) => {
+  this.comOne = async (dbpath, name) => {
     try {
-      tmp = dbpath+'/'+name;
-      console.log(tmp)
+      tmp = dbpath + '/' + name;
       data = await funcs.readFile(tmp);
+      data = this.replaceImageSrc(data);
       data = marked(data, { breaks: true, gfm: true });
-      
-      for(let i in temRule){
-        data=data.replace(new RegExp(`<${i}(\s+[a-zA-Z]+=".*")*>`, 'ig'), `<${i} style="${trfObbj(temRule[i])}">`)
+      for (let i in temRule) {
+        data = data.replace(new RegExp(`<${i}(\s+[a-zA-Z]+=".*")*>`, 'ig'), `<${i} style="${trfObbj(temRule[i])}">`)
       }
-      //暂时处理无法匹配h5标签的问题
-      data = data.replace(/<h5/ig, '<h5 style="font-size:22px"');
+      //暂时处理无法匹配h5\img标签的问题
+      data = data.replace(/<h5/ig, '<h5 style="font-size:22px;text-align:left"');
+      data = data.replace(/\<img /ig, '<img style="width:100%;display:block;border-radius: 15px;"');
+
+
       //转化为数组
       this.dbIndex.filedata.push({
         name: name,
@@ -77,9 +79,34 @@ module.exports = new function () {
     }
     return this.dbIndex;
   }
+  this.resetImgSrc = (data, imgsrc) => {
+    let realsrc = '';
+    if (this.domain[this.domain.length - 1] == '/') {
+      this.domain = this.domain.substring(0, this.domain.length - 1);
+    }
+    realsrc = this.domain + '/' + imgsrc;
 
-  // this.comOne("../../public/mdFile/fileArticle","新进文本文档.md")
-  // console.log(temRule)
+    let i = 0;
+    while (data.indexOf(`](${imgsrc}`) >= 0 && i < 20) {
+      data = data.replace(imgsrc, realsrc);
+      i += 1;
+    }
+    return data;
+  }
+
+  this.replaceImageSrc = (data) => {
+    var images = data.match(/\!\[[^\]]*\]\(.*\)/ig);
+
+    if (!images) {
+      return data;
+    }
+    let tmp = '';
+    for (let i = 0; i < images.length; i++) {
+      tmp = images[i].split('](')[1];
+      data = this.resetImgSrc(data, tmp.substring(0, tmp.length - 1));
+    }
+    return data;
+  }
 
 
 

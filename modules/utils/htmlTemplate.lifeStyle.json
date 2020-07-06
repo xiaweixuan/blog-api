@@ -4,7 +4,8 @@
         "line-height": "30px",
         "letter-spacing": "5px",
         "text-indent": "46px",
-        "text-align": "left"
+        "text-align": "left",
+        "position": "relative"
     },
     "h1": {
         "font-size": "30px"
@@ -28,6 +29,7 @@
         "background-color": "aliceblue",
         "border-radius": "15px",
         "text-align": "left",
-        "padding": "15px"
+        "padding": "15px",
+        "overflow-x":"scroll"
     }
 }
