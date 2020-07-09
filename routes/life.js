@@ -10,9 +10,6 @@ router.get('/', function (req, res, next) {
     res.end('life article api:"/all" is all artcile;  ')
 })
 router.get('/all', function (req, res, next) {
-    // debugger
-    // res.header("Access-Control-Allow-Origin", "*")
-
     p.getIntroduce((err, r) => {
         if (err) {
             res.json({
