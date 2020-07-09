@@ -18,12 +18,12 @@ router.get('/all', function (req, res, next) {
             res.json({
                 "code": 500,
                 result: []
-            })
+           })
         } else {
             var result = {
                 result: r,
                 "code": 200
-            }
+          }
             res.json(result)
         }
 

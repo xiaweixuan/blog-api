@@ -1,0 +1,50 @@
+
+> blog-api@0.0.0 start /home/xiaweixuan/blog-api
+> node ./bin/www
+
+[0mGET /life/all [32m200 [0m24.035 ms - 294[0m
+[0mGET /favicon.ico [33m404 [0m202.770 ms - 1072[0m
+[0mGET /life/all [36m304 [0m7.521 ms - -[0m
+[0mGET /life/all [36m304 [0m6.322 ms - -[0m
+[0mGET /life/all [36m304 [0m5.898 ms - -[0m
+[0mGET /life/all [36m304 [0m5.746 ms - -[0m
+[0mGET /life/all [36m304 [0m5.782 ms - -[0m
+[0mGET /life/all [36m304 [0m5.830 ms - -[0m
+[0mGET /life/all [36m304 [0m5.776 ms - -[0m
+[0mGET /life/all [36m304 [0m5.752 ms - -[0m
+[0mGET /life/all [36m304 [0m5.777 ms - -[0m
+[0mGET /life/all [36m304 [0m5.783 ms - -[0m
+[0mGET /life/all [36m304 [0m5.790 ms - -[0m
+[0mGET /life/all [36m304 [0m5.745 ms - -[0m
+[0mGET /life/all [36m304 [0m6.584 ms - -[0m
+[0mGET /life/all [36m304 [0m6.173 ms - -[0m
+[0mGET /life/all [36m304 [0m5.989 ms - -[0m
+[0mGET /life/all [36m304 [0m5.860 ms - -[0m
+[0mGET /life/all [36m304 [0m5.841 ms - -[0m
+[0mGET /life/all [36m304 [0m5.848 ms - -[0m
+[0mGET /life/all [36m304 [0m5.790 ms - -[0m
+[0mGET /life/all [36m304 [0m6.481 ms - -[0m
+[0mGET /life/all [36m304 [0m6.267 ms - -[0m
+[0mGET /life/all [36m304 [0m5.878 ms - -[0m
+[0mGET /life/all [36m304 [0m5.833 ms - -[0m
+[0mGET /life/all [36m304 [0m5.876 ms - -[0m
+[0mGET /life/all [36m304 [0m5.814 ms - -[0m
+[0mGET /life/all [36m304 [0m5.756 ms - -[0m
+[0mGET /life/all [36m304 [0m5.810 ms - -[0m
+[0mGET /life/all [36m304 [0m5.790 ms - -[0m
+[0mGET /life/all [36m304 [0m5.833 ms - -[0m
+[0mGET /life/all [36m304 [0m6.018 ms - -[0m
+[0mGET /life/all [36m304 [0m5.908 ms - -[0m
+[0mGET /life/all [36m304 [0m5.874 ms - -[0m
+[0mGET /life/all [36m304 [0m6.438 ms - -[0m
+[0mGET /life/all [36m304 [0m5.838 ms - -[0m
+[0mGET /life/all [36m304 [0m5.804 ms - -[0m
+[0mGET /life/all [36m304 [0m5.785 ms - -[0m
+[0mGET /life/all [36m304 [0m5.862 ms - -[0m
+[0mGET /life/all [36m304 [0m5.764 ms - -[0m
+[0mGET /life/all [36m304 [0m5.794 ms - -[0m
+[0mGET /life/all [36m304 [0m5.915 ms - -[0m
+[0mGET /life/all [36m304 [0m5.848 ms - -[0m
+[0mGET /images/1.jpg [32m200 [0m4.403 ms - 21204[0m
+[0mGET /life/detail?id=1 [32m200 [0m29.985 ms - 2835[0m
+[0mGET /mdFile/fileArticle/img/1.jpg [32m200 [0m3.524 ms - 506464[0m
